@@ -49,8 +49,14 @@ This repository contains customizations for the Omarchy Hyprland setup, includin
 
 ### Window Management (Vim-style)
 
+- **SUPER + hjkl** = Move focus
 - **SUPER SHIFT + hjkl** = Move windows
 - **SUPER ALT + hjkl** = Resize windows
+
+### Moved Keybindings
+
+- **SUPER + I** = Toggle split (was SUPER + J)
+- **SUPER + U** = Show key bindings (was SUPER + K)
 
 ### Web Apps
 
@@ -108,9 +114,10 @@ omarchy-dotfiles/
 
 ### Window Management
 
-- Vim-style movement and resizing
+- Complete vim-style window management (focus, move, resize)
 - JetBrains IDEs use dedicated floating workspace
 - Android emulator proper sizing and centering
+- Resolved keybinding conflicts with Omarchy defaults
 
 ### Development Tools
 
