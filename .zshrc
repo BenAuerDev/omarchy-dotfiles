@@ -5,3 +5,6 @@ export PATH="/usr/bin:$PATH"
 
 # Set Chrome executable for development tools
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+
+# Show system info on terminal startup
+fastfetch
