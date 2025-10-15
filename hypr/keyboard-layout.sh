@@ -6,7 +6,7 @@
 # 
 # WHAT IT DOES:
 # =============
-# Toggles between German and UK English keyboard layouts
+# Toggles between German and US English keyboard layouts
 # Shows a nice overlay with the current layout
 # 
 # USAGE:
@@ -54,8 +54,8 @@ switch_to_layout() {
     # No notification - the overlay shows the current layout
 }
 
-# Function to show layout overlay using notify-send
-show_layout_overlay() {
+# Function to show layout notification
+show_layout_notification() {
     local current
     current=$(get_current_layout)
     local current_index=0
@@ -83,8 +83,8 @@ toggle_layout() {
     # Switch to next layout
     switch_to_layout "$next_layout" "$next_name"
     
-    # Show overlay
-    show_layout_overlay
+    # Show notification
+    show_layout_notification
 }
 
 # Function to cycle through layouts (for repeated key presses)
@@ -109,13 +109,13 @@ cycle_layout() {
     # Switch to next layout
     switch_to_layout "$next_layout" "$next_name"
     
-    # Show overlay
-    show_layout_overlay
+    # Show notification
+    show_layout_notification
 }
 
-# Check if we should show overlay only or cycle
-if [ "$1" = "overlay" ]; then
-    show_layout_overlay
+# Check if we should show notification only or cycle
+if [ "$1" = "notification" ]; then
+    show_layout_notification
 else
     cycle_layout
 fi
