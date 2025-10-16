@@ -14,7 +14,10 @@ echo "🚀 Setting up Omarchy customizations..."
 
 # Create necessary directories
 mkdir -p ~/.config/hypr/scripts
-mkdir -p ~/prompts
+mkdir -p ~/omarchy-dotfiles/prompts
+
+# Create symlink for compatibility
+ln -sf ~/omarchy-dotfiles/prompts ~/prompts
 
 # Copy configuration files
 echo "📁 Copying configuration files..."
@@ -22,6 +25,7 @@ cp hypr/bindings.conf ~/.config/hypr/
 cp hypr/envs.conf ~/.config/hypr/
 cp hypr/windows.conf ~/.config/hypr/
 cp hypr/archivist.sh ~/.config/hypr/scripts/
+cp -r hypr/prompts/* ~/omarchy-dotfiles/prompts/ 2>/dev/null || true
 
 # Make scripts executable
 chmod +x ~/.config/hypr/scripts/archivist.sh
