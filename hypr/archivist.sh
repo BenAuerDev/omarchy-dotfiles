@@ -40,7 +40,7 @@ export XDG_SESSION_TYPE="${XDG_SESSION_TYPE:-wayland}"
 # ================================================================
 
 # Configuration
-PROMPTS_DIR="$HOME/prompts"
+PROMPTS_DIR="$HOME/omarchy-dotfiles/prompts"
 WALKER_CONFIG="$HOME/.config/walker/config.toml"
 
 # Create prompts directory if it doesn't exist
@@ -145,16 +145,16 @@ copy_prompt() {
 # Function to open prompts directory in neovim
 open_in_neovim() {
     if command -v nvim >/dev/null 2>&1; then
-        # Try direct terminal launch first
-        $TERMINAL -e nvim "$PROMPTS_DIR" &
+        # Try direct terminal launch first - open nvim in the prompts directory
+        $TERMINAL -e nvim -c "cd $PROMPTS_DIR" "$PROMPTS_DIR" &
         if [ $? -ne 0 ]; then
             # Fallback to uwsm if direct launch fails
-            uwsm app -- $TERMINAL -e nvim "$PROMPTS_DIR" &
+            uwsm app -- $TERMINAL -e nvim -c "cd $PROMPTS_DIR" "$PROMPTS_DIR" &
         fi
     elif command -v vim >/dev/null 2>&1; then
-        $TERMINAL -e vim "$PROMPTS_DIR" &
+        $TERMINAL -e vim -c "cd $PROMPTS_DIR" "$PROMPTS_DIR" &
         if [ $? -ne 0 ]; then
-            uwsm app -- $TERMINAL -e vim "$PROMPTS_DIR" &
+            uwsm app -- $TERMINAL -e vim -c "cd $PROMPTS_DIR" "$PROMPTS_DIR" &
         fi
     else
         notify-send "Archivist" "No editor found (install nvim or vim)" -t 3000
