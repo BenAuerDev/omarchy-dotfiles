@@ -1,0 +1,48 @@
+# Simple and clean starship config
+add_newline = true
+command_timeout = 200
+
+# Show directory, git branch, and prompt character
+format = "[$directory]($style)[$git_branch]($style) $character"
+
+# Character prompt
+[character]
+error_symbol = "[✗](bold red)"
+success_symbol = "[❯](bold cyan)"
+
+# Directory styling - more visually appealing
+[directory]
+style = "bold cyan"
+truncation_length = 3
+truncation_symbol = "…/"
+format = "[$path]($style) "
+
+# Git branch - show when in a git repo
+[git_branch]
+format = "on [$symbol$branch]($style) "
+style = "bold green"
+symbol = " "
+
+[git_status]
+disabled = true
+
+[package]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[rust]
+disabled = true
+
+[golang]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[memory_usage]
+disabled = true
