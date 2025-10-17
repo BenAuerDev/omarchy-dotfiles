@@ -14,3 +14,10 @@ fastfetch
 
 # Initialize starship prompt
 eval "$(starship init zsh)"
+
+# Useful aliases
+alias ll='ls -la'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+alias -- -='cd -'

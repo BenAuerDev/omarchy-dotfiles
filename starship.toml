@@ -1,48 +1,72 @@
-# Simple and clean starship config
+# Tokyo Night Starship Config with Rounded Corners
 add_newline = true
 command_timeout = 200
 
-# Show directory, git branch, and prompt character
-format = "[$directory]($style)[$git_branch]($style) $character"
+format = """
+[░▒▓](#a3aed2)\
+[🐧](bg:#a3aed2 fg:#090c0c)\
+[](bg:#769ff0 fg:#a3aed2)\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+$golang\
+$dart\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[](fg:#1d2230)\
+\n$character"""
 
-# Character prompt
 [character]
 error_symbol = "[✗](bold red)"
 success_symbol = "[❯](bold cyan)"
 
-# Directory styling - more visually appealing
 [directory]
-style = "bold cyan"
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-format = "[$path]($style) "
 
-# Git branch - show when in a git repo
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
 [git_branch]
-format = "on [$symbol$branch]($style) "
-style = "bold green"
-symbol = " "
+symbol = "󰊢"
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
-disabled = true
-
-[package]
-disabled = true
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
 [nodejs]
-disabled = true
-
-[python]
-disabled = true
+symbol = "󰎙"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [rust]
-disabled = true
+symbol = "󰀘"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [golang]
-disabled = true
+symbol = "󰟓"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
-[cmd_duration]
-disabled = true
+[dart]
+symbol = "🎯"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
-[memory_usage]
-disabled = true
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ 󰥔 $time ](fg:#a0a9cb bg:#1d2230)]($style)'
