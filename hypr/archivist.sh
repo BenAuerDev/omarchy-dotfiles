@@ -86,7 +86,7 @@ show_prompts() {
     
     # Show Walker menu
     local chosen
-    chosen=$(echo -e "$menu_options" | walker --dmenu --theme omarchy-default -p "Archivist" -w 600 -h 400)
+    chosen=$(echo -e "$menu_options" | walker --dmenu --theme omarchy-default -p "Archivist" --height 400)
     
     if [ -n "$chosen" ]; then
         # Check if user selected "Open in Neovim"
