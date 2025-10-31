@@ -1,5 +1,9 @@
 Please help me develop a new feature. Before implementing, I need you to gather information and understand the requirements through the following questions:
 
+**Documentation:** Maintain a `.md` planning file that serves as the single source of truth. Document all decisions, findings, architectural choices, and code suggestions. Update this file throughout our conversation as we discuss options and make decisions. When proposing alternatives (e.g., "We can implement this via approach A or B"), wait for my decision, then record the chosen approach and reasoning in the planning document.
+
+**Best Practices:** Follow existing codebase patterns and conventions. Flag any conflicts between proposed approaches and project patterns or best practices.
+
 ## Understanding the "Why"
 
 - What is the problem we are trying to solve?
@@ -36,6 +40,7 @@ Please help me develop a new feature. Before implementing, I need you to gather 
 ---
 
 After gathering this information, please:
+
 1. **Analyze the requirements** and ask clarifying questions if anything is unclear
 2. **Propose a technical design** that follows existing codebase patterns
 3. **Identify potential issues** or edge cases that should be addressed
