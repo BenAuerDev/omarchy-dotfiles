@@ -5,6 +5,7 @@ This repository contains customizations for the Omarchy Hyprland setup, includin
 ## Features
 
 - **Vim-style window management** - Move and resize windows with hjkl keys
+- **Window grouping** - Group windows together and cycle through them
 - **Archivist AI prompts manager** - Quick access to frequently used text snippets
 - **Android Studio emulator fixes** - Proper scaling and display
 - **Chrome executable configuration** - For development tools
@@ -34,40 +35,46 @@ This repository contains customizations for the Omarchy Hyprland setup, includin
 
 ### Application Launchers
 
+- **SUPER + return** = Terminal
 - **SUPER + A** = Archivist (AI prompts manager)
 - **SUPER + B** = Browser
-- **SUPER + C** = Calendar
+- **SUPER SHIFT + B** = Browser (private)
+- **SUPER + C** = Cursor (editor)
+- **SUPER + D** = Docker (lazydocker)
 - **SUPER + E** = File manager (Nautilus)
-- **SUPER + G** = Signal
+- **SUPER + F** = GitKraken
+- **SUPER + G** = Toggle window grouping
 - **SUPER + M** = Music (Spotify)
 - **SUPER + N** = Editor
-- **SUPER + O** = Obsidian
+- **SUPER + O** = Keyboard layout switcher
+- **SUPER SHIFT + O** = Logseq
 - **SUPER + Q** = Close active window
 - **SUPER + T** = Activity (btop)
-- **SUPER + Y** = YouTube
+- **SUPER + Y** = Clipboard Manager
 - **SUPER + /** = Passwords (1Password)
 
 ### Window Management (Vim-style)
 
 - **SUPER + hjkl** = Move focus
-- **SUPER SHIFT + hjkl** = Move windows
-- **SUPER ALT + hjkl** = Resize windows
+- **SUPER ALT + hjkl/arrows** = Move windows
+- **SUPER SHIFT + hjkl/arrows** = Resize windows (fine - 100px)
+- **SUPER SHIFT CTRL + hjkl/arrows** = Resize windows (coarse - 250px)
+
+### Window Grouping
+
+- **SUPER + G** = Toggle window grouping
+- **SUPER CTRL + G** = Move window out of group
+- **SUPER CTRL + hjkl/arrows** = Move window into group (toward that direction)
+- **SUPER CTRL + 8/9** = Cycle through grouped windows
 
 ### Moved Keybindings
 
 - **SUPER + I** = Toggle split (was SUPER + J)
 - **SUPER + U** = Show key bindings (was SUPER + K)
 
-### Web Apps
-
-- **SUPER SHIFT + A** = Grok
-- **SUPER SHIFT + G** = WhatsApp
-- **SUPER ALT + G** = Google Messages
-- **SUPER SHIFT + X** = X Post
-
 ## Archivist Usage
 
-1. **Create prompts**: Store text files in `~/prompts/` with `.txt`, `.md`, or `.prompt` extensions
+1. **Create prompts**: Store text files in `~/omarchy-dotfiles/prompts/` with `.txt`, `.md`, or `.prompt` extensions
 2. **Access prompts**: Press `SUPER + A` to open the Walker menu
 3. **Edit prompts**: Select "Open in Neovim" to edit your prompts
 4. **Copy to clipboard**: Select any prompt to copy it to clipboard
@@ -77,14 +84,14 @@ This repository contains customizations for the Omarchy Hyprland setup, includin
 **Method 1: Using nvim (recommended)**
 
 1. Press `SUPER + A` → "Open in Neovim"
-2. Type `:e ~/prompts/your_filename.txt`
+2. Type `:e ~/omarchy-dotfiles/prompts/your_filename.txt`
 3. Write your prompt content
 4. Save with `:w` and exit with `:q`
 
 **Method 2: From terminal**
 
 ```bash
-echo "Your prompt content here" > ~/prompts/your_filename.txt
+echo "Your prompt content here" > ~/omarchy-dotfiles/prompts/your_filename.txt
 ```
 
 ## File Structure
@@ -94,11 +101,13 @@ omarchy-dotfiles/
 ├── README.md              # This file
 ├── setup.sh              # Setup script
 ├── .zshrc                 # Shell configuration
+├── prompts/               # AI prompt files (.txt, .md, .prompt)
 └── hypr/
     ├── bindings.conf      # Custom keybindings
     ├── envs.conf          # Environment variables
     ├── windows.conf       # Window rules
-    └── archivist.sh       # AI prompts manager script
+    ├── archivist.sh       # AI prompts manager script
+    └── keyboard-layout.sh # Keyboard layout switcher
 ```
 
 ## Dependencies
@@ -115,9 +124,11 @@ omarchy-dotfiles/
 ### Window Management
 
 - Complete vim-style window management (focus, move, resize)
+- Window grouping with cycle-through functionality
 - JetBrains IDEs use dedicated floating workspace
 - Android emulator proper sizing and centering
 - Resolved keybinding conflicts with Omarchy defaults
+- Upgraded to tiling-v2.conf for latest Omarchy features
 
 ### Development Tools
 
