@@ -26,6 +26,11 @@ This repository contains customizations for the Omarchy Hyprland setup, includin
    ```bash
    ./setup.sh
    ```
+   
+   The setup script will:
+   - Copy configuration files to `~/.config/hypr/`
+   - Set up symlinks for tracking
+   - Optionally install packages from `packages.txt` (including Android Studio from AUR)
 
 3. **Reload Hyprland**: Press `SUPER + CTRL + R`
 

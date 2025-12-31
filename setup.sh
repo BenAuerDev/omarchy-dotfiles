@@ -39,6 +39,23 @@ fi
 # Copy zshrc
 cp .zshrc ~/.zshrc
 
+# Install packages from packages.txt (optional)
+if [ -f packages.txt ] && command -v yay &> /dev/null; then
+    echo ""
+    echo "📦 Installing packages from packages.txt..."
+    echo "   (This includes Flutter dev tools, Android Studio, etc.)"
+    read -p "   Install packages now? [y/N] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        grep -v '^#' packages.txt | grep -v '^$' | xargs yay -S --needed --noconfirm || {
+            echo "⚠️  Some packages failed to install. Check the output above."
+        }
+    else
+        echo "   Skipped. Install later with: ./install-packages.sh"
+    fi
+fi
+
+echo ""
 echo "✅ Setup complete!"
 echo ""
 echo "Next steps:"
@@ -46,4 +63,8 @@ echo "1. Reload Hyprland: SUPER + CTRL + R"
 echo "2. Reload shell: source ~/.zshrc"
 echo "3. Test Archivist: SUPER + A"
 echo ""
+if [ ! -f packages.txt ] || ! command -v yay &> /dev/null; then
+    echo "💡 Tip: Install packages with: ./install-packages.sh"
+    echo ""
+fi
 echo "Your customizations are now active!"
