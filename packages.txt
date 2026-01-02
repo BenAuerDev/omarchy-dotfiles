@@ -1,0 +1,32 @@
+# Omarchy Dotfiles - Package List
+# Install all packages with: xargs -a packages.txt yay -S --needed
+
+# Core dependencies (from README)
+omarchy
+walker
+wl-clipboard
+nautilus
+neovim
+nwg-displays
+
+# Applications from keybindings
+spotify
+btop
+lazydocker
+gitkraken
+# Note: Add other packages you use here
+# cursor - already installed manually
+# logseq - install manually if needed
+
+# Additional tools
+zsh
+starship
+# Note: zsh is required for the .zshrc configuration
+
+# Flutter development tools
+cmake
+ninja
+mesa-utils
+
+# Android development (from AUR)
+android-studio
