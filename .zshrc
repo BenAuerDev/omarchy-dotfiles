@@ -3,6 +3,9 @@
 # Add Google Chrome to PATH
 export PATH="/usr/bin:$PATH"
 
+# Add pub-cache to PATH
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
 # Set Chrome executable for development tools
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
